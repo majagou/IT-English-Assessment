@@ -213,7 +213,7 @@
   text-transform: uppercase;
   background-color: #1a1b1f;
   padding: 12px 25px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 20px;
   transition: all .2s;
@@ -251,6 +251,7 @@
 .margin-bottom-24px {
   margin-bottom: 24px;
   font-family: Bitter, serif;
+  font-size: 15px;
 }
 
 .hero-image {
@@ -304,7 +305,7 @@
   text-transform: uppercase;
   background-color: #1a1b1f;
   padding: 12px 25px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 20px;
   transition: all .2s;
 }
@@ -320,7 +321,7 @@
 
 .heading-2 {
   font-family: Open Sans, sans-serif;
-  font-size: 30px;
+  font-size: 35px;
   font-weight: 700;
 }
 
@@ -330,12 +331,14 @@
   padding-top: 1px;
   padding-bottom: 1px;
   font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 .text-field {
   width: 750px;
   object-fit: scale-down;
   font-family: Open Sans, sans-serif;
+  font-size: 18px;
   overflow: scroll;
 }
 
@@ -345,6 +348,7 @@
 
 .text-block-listening {
   font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 .footer-divider {
@@ -369,6 +373,7 @@
 .text-matching-word {
   align-self: center;
   align-items: center;
+  font-family: Open Sans, sans-serif;
   font-size: 18px;
   display: flex;
 }
@@ -399,7 +404,7 @@
   width: 750px;
   flex: 0 auto;
   align-self: center;
-  font-family: Bitter, serif;
+  font-family: Open Sans, sans-serif;
   font-size: 18px;
   display: flex;
 }
@@ -416,18 +421,33 @@
 .text-block-single-selection {
   width: 750px;
   align-self: flex-start;
-  font-family: Bitter, serif;
+  font-family: Open Sans, sans-serif;
   font-size: 18px;
   display: flex;
+}
+
+.cell-single-choice {
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 .quick-stack-multiple-choice {
   width: 790px;
 }
 
+.cell-multiple-choice {
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+}
+
 .quick-stack-dragdrop {
   width: 790px;
   grid-column-gap: 50px;
+}
+
+.cell-dragdrop-article {
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 .hero-heading-left {
@@ -502,12 +522,19 @@
   border-radius: 0;
   justify-content: center;
   align-items: center;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 .text-block-dragdrop-word {
   justify-content: flex-start;
   align-items: flex-start;
   display: flex;
+}
+
+.cell-12 {
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
 }
 
 @media screen and (max-width: 991px) {
