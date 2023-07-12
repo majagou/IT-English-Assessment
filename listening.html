@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Task</title>
+    <link rel="stylesheet" href="css/web.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div class="top-navbar">
+        <a href="#">IT English Test</a>
+        <a class="active" href="index.html">Home</a>
+    </div>
+    <div class="container">
+        <div id="listeningTask" class="flex-center flex-column">
+            <div id="listen-title">
+                <h2 class="listen-text">Click the play button and write down the word or sentences you heard</h2>                   
+                <div id="action-btn">
+                    <a class="btn play">Play</a>
+                    <a class="btn pause">Pause</a>
+                </div>
+            </div>
+            <form>
+                <input 
+                  type="text"
+                  name="listenAnswer"
+                  id="listenAnswer"
+                  placeholder="Write the word or sentences you heard"
+                >
+              <button 
+                type="submit" 
+                class="btn" 
+                id="saveAnswer"
+                onclick="saveAnswer(event)"
+                disabled
+                >
+                Next
+              </button>  
+              </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>@IT English Assessment</p>
+    </div>
+    <script src="js/listening.js"></script>
+</body>
+</html>
