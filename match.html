@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matching Task</title>
+    <link rel="stylesheet" href="css/web.css" />
+    <link rel="stylesheet" href="css/game.css" />
+  </head>
+  <body>
+    <div class="top-navbar">
+      <a href="#">IT English Test</a>
+      <a class="active" href="index.html">Home</a>
+    </div>
+    <div class="container">
+      <div class="image-container">
+        <img src="images/match01.png" data-word="diskette" class="image" />
+        <img
+          src="images/match02.png"
+          data-word="cyberinformation"
+          class="image"
+        />
+        <img src="images/match03.png" data-word="monitor" class="image" />
+        <img src="images/match04.png" data-word="encrypted" class="image" />
+      </div>
+      <div class="word-container">
+        <div data-word="diskette" class="word">diskette</div>
+        <div data-word="cyberinformation" class="word">cyberinformation</div>
+        <div data-word="monitor" class="word">monitor</div>
+        <div data-word="encrypted" class="word">encrypted</div>
+      </div>
+      <div id="error-message" class="error-message"></div>
+    </div>
+    <a class="btn" href="/singleSelection.html"></a>
+    <div class="footer">
+      <p>@IT English Assessment</p>
+    </div>
+    <script src="js/matching.js"></script>
+  </body>
+</html>
