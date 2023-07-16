@@ -92,9 +92,16 @@ function showError(message) {
   errorMessage.textContent = message;
   errorMessage.style.display = "block";
   errorShown = true;
+
+  // 清除错误提示
+  setTimeout(() => {
+    errorMessage.textContent = "";
+    //errorMessage.style.display = "none";
+    errorShown = false;
+  }, 1500);
 }
 
-// Clear error message
+// 清除错误提示
 function clearError() {
   const errorMessage = document.getElementById("error-message");
   errorMessage.textContent = "";
