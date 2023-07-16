@@ -68,9 +68,16 @@ def get_unique_choices(correct_answer, synonyms, num_choices):
     else:
         return random.sample(synonyms, k=num_choices)
 
+# 从JSON文件中随机选择一段文本
+def select_random_text_from_json(filename):
+    with open(filename, 'r') as f:
+        data = json.load(f)
+    return random.choice(data)['text']
 
 # Example text
-text = "He has a few new features, like vocalizing responses so you can hear them aloud if you've prompted poems or a dialogue scene, or if there's tricky pronunciation. To hear responses, just press the button that looks like a sound icon, next to a message. A different Google I/O promise is also being fulfilled: dropping images into Bard to help you analyze, create a caption or find more information on the internet. This feature is available only in English right now."
+#text = "He has a few new features, like vocalizing responses so you can hear them aloud if you've prompted poems or a dialogue scene, or if there's tricky pronunciation. To hear responses, just press the button that looks like a sound icon, next to a message. A different Google I/O promise is also being fulfilled: dropping images into Bard to help you analyze, create a caption or find more information on the internet. This feature is available only in English right now."
+filename = 'text.json'
+text = select_random_text_from_json(filename)
 
 questions = generate_synonym_questions(text)
 if questions:

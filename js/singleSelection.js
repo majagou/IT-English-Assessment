@@ -39,7 +39,7 @@ getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
     //go to the end page
-    return window.location.assign("/end.html");
+    return window.location.assign("/end.html?finalScore" + score);
   }
   questionCounter++;
   questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
@@ -82,7 +82,15 @@ choices.forEach((choice) => {
   });
 });
 
+// Calculate the final score by adding the previous score and current score
 incrementScore = (num) => {
-  score += num;
+  const previousScore = parseInt(scoreText.innerText);
+  score = previousScore + num;
   scoreText.innerText = score;
 };
+
+// Get the initial score from the URL and display it
+const urlParams = new URLSearchParams(window.location.search);
+const initialScore = parseInt(urlParams.get("score"));
+score = initialScore;
+scoreText.innerText = score;

@@ -22,6 +22,7 @@ words.forEach((word) => {
 let matchedCount = 0; // record the number of matched pairs
 let errorShown = false; // Record whether the error message has been displayed
 
+let score = 0;
 // Handle the image click event
 function handleImageClick() {
   if (
@@ -34,11 +35,16 @@ function handleImageClick() {
     selectedImage = null;
     selectedWord = null;
     matchedCount++;
+    score += 10;
+
+    // Update score display
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
 
     // check if all images and words are matched
     if (matchedCount === images.length) {
       // Jump to the next page
-      window.location.href = "singleSelection.html";
+      window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
     selectedImage = this;
@@ -62,11 +68,16 @@ function handleWordClick() {
     selectedImage = null;
     selectedWord = null;
     matchedCount++;
+    score += 10;
+
+    // Update score display
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
 
     // check if all images and words are matched
     if (matchedCount === images.length) {
       // Jump to the next page
-      window.location.href = "singleSelection.html";
+      window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
     selectedWord = this;
@@ -125,3 +136,21 @@ window.onload = function () {
     wordContainer.appendChild(words[i]);
   }
 };
+
+// Timer countdown
+let remainingTime = 60; // 1 minute
+
+const timerElement = document.getElementById("timer");
+timerElement.textContent = remainingTime;
+
+const timerInterval = setInterval(() => {
+  remainingTime--;
+  timerElement.textContent = remainingTime;
+
+  if (remainingTime <= 0) {
+    clearInterval(timerInterval);
+
+    // Jump to the next page and pass the score
+    window.location.href = `singleSelection.html?score=${score}`;
+  }
+}, 1000);
