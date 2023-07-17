@@ -65,6 +65,12 @@
   width: 20%;
 }
 
+#matchgame {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+
 .image-container {
   display: flex;
   flex-direction: column;
@@ -79,9 +85,10 @@
 }
 
 .error-message {
+  font-size: 5rem;
   text-align: center;
   color: red;
-  margin-top: 10px;
+  margin: 6rem;
 }
 
 .word-container {
@@ -92,6 +99,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 15rem 0rem;
 }
 
 .word {
@@ -99,6 +107,8 @@
   height: 50px;
   margin: 10px;
   cursor: pointer;
+  text-align: center;
+  padding: 10px;
   box-shadow: lightblue;
 }
 
