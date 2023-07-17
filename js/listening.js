@@ -59,6 +59,8 @@ setupFillInTheBlanks = () => {
   });
 };
 
+let score = 0;
+
 function goToNextPage() {
   window.location.href = `match.html?score=${score}`;
 }
@@ -67,7 +69,7 @@ function goToNextPage() {
 function checkAnswers() {
   const blanks = document.querySelectorAll(".blank");
   const resultsDiv = document.getElementById("results");
-  let score = 0;
+
   let resultsHTML = "";
 
   blanks.forEach((blank) => {
