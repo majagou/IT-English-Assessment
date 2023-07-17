@@ -1,21 +1,22 @@
-let article = "This is the first part ChatGPT. This is the second part Machine Learning. This is the third part Tech. This is the fourth part Chatbot. This is the fifth part AI. This is the sixth part.";
+let article =
+  "This is the first part ChatGPT. This is the second part Machine Learning. This is the third part Tech. This is the fourth part Chatbot. This is the fifth part AI. This is the sixth part.";
 let keyWords = ["ChatGPT", "Machine", "Tech", "Chatbot", "AI"];
 
 //let article = "";
 //let keyWords =["artificial", "development", "Guardian", "information", "conversational"];
 
 function loadFileContent() {
-    fetch('article/BEN52-ChatGPT.txt')
-        .then(response => response.text())
-        .then(data => {
-            // Update the article variable with the file content
-            article = data;
-            // Call the setupFillInTheBlanks function to update the article content in the HTML
-            setupFillInTheBlanks();
-        })
-        .catch(error => {
-            console.error('Error reading the file:', error);
-        });
+  fetch("article/BEN52-ChatGPT.txt")
+    .then((response) => response.text())
+    .then((data) => {
+      // Update the article variable with the file content
+      article = data;
+      // Call the setupFillInTheBlanks function to update the article content in the HTML
+      setupFillInTheBlanks();
+    })
+    .catch((error) => {
+      console.error("Error reading the file:", error);
+    });
 }
 console.log(article);
 
@@ -52,43 +53,45 @@ const segments = cutArticleWithKeywords(article, keyWords);
 const articles = Array.from(document.getElementsByClassName("article"));
 
 setupFillInTheBlanks = () => {
-    articles.forEach((article) => {
-        const number = article.dataset["number"];
-        article.innerText = segments[number - 1];
-      })
+  articles.forEach((article) => {
+    const number = article.dataset["number"];
+    article.innerText = segments[number - 1];
+  });
 };
 
 function goToNextPage() {
-    window.location.href = "match.html";
+  window.location.href = `match.html?score=${score}`;
 }
 
 //check if the answers are right
 function checkAnswers() {
-    const blanks = document.querySelectorAll(".blank");
-    const resultsDiv = document.getElementById("results");
-    let score = 0;
-    let resultsHTML = "";
+  const blanks = document.querySelectorAll(".blank");
+  const resultsDiv = document.getElementById("results");
+  let score = 0;
+  let resultsHTML = "";
 
-    blanks.forEach((blank) => {
-        const userAnswer = blank.value.trim().toLowerCase();
-        const blankNumber = blank.dataset.number;
-        const correctAnswer = keyWords[blankNumber - 1];
+  blanks.forEach((blank) => {
+    const userAnswer = blank.value.trim().toLowerCase();
+    const blankNumber = blank.dataset.number;
+    const correctAnswer = keyWords[blankNumber - 1];
 
-        if (userAnswer === correctAnswer.toLowerCase()) {
-            score += 10;
-            resultsHTML += `<p class="correct">Question ${blankNumber}: Correct!</p>`;
-        } else {
-            resultsHTML += `<p class="incorrect">Question ${blankNumber}: Incorrect. The correct answer is "${correctAnswer}".</p>`;
-        }
-    });
+    if (userAnswer === correctAnswer.toLowerCase()) {
+      score += 10;
+      resultsHTML += `<p class="correct">Question ${blankNumber}: Correct!</p>`;
+    } else {
+      resultsHTML += `<p class="incorrect">Question ${blankNumber}: Incorrect. The correct answer is "${correctAnswer}".</p>`;
+    }
+  });
 
-    resultsHTML = `<h3>Results</h3>${resultsHTML}<p>Your score: ${score} out of ${blanks.length * 10}</p>`;
-    resultsDiv.innerHTML = resultsHTML;
-    
-    const submitButton = document.getElementById("submitButton");
-    const nextPageButton = document.getElementById("nextPageButton");
-    submitButton.style.display = "none";
-    nextPageButton.style.display = "block";
+  resultsHTML = `<h3>Results</h3>${resultsHTML}<p>Your score: ${score} out of ${
+    blanks.length * 10
+  }</p>`;
+  resultsDiv.innerHTML = resultsHTML;
+
+  const submitButton = document.getElementById("submitButton");
+  const nextPageButton = document.getElementById("nextPageButton");
+  submitButton.style.display = "none";
+  nextPageButton.style.display = "block";
 }
 
 setupFillInTheBlanks();

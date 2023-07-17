@@ -2,6 +2,10 @@
 const images = Array.from(document.querySelectorAll(".image"));
 const words = Array.from(document.querySelectorAll(".word"));
 
+// Get the score from the URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const scoreFromPreviousPage = parseInt(urlParams.get("score"));
+
 // Randomly shuffle the order of pictures and words
 shuffleArray(images);
 shuffleArray(words);
@@ -23,6 +27,14 @@ let matchedCount = 0; // record the number of matched pairs
 let errorShown = false; // Record whether the error message has been displayed
 
 let score = 0;
+
+// Update the score display with the score from the previous page
+const scoreElement = document.getElementById("score");
+scoreElement.textContent = scoreFromPreviousPage;
+
+// Accumulate the score from the previous page
+score += scoreFromPreviousPage;
+
 // Handle the image click event
 function handleImageClick() {
   if (
@@ -88,6 +100,9 @@ function handleWordClick() {
     }
   }
 }
+
+// Update the score display after accumulating the score
+scoreElement.textContent = score;
 
 // Shuffle the order of the array
 function shuffleArray(array) {
