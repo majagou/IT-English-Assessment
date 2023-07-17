@@ -1,6 +1,8 @@
 //let article = "This is the first part ChatGPT. This is the second part Machine Learning. This is the third part Tech. This is the fourth part Chatbot. This is the fifth part AI. This is the sixth part.";
 //let keyWords = ["ChatGPT", "Machine", "Tech", "Chatbot", "AI"];
 const articles = Array.from(document.getElementsByClassName("article"));
+const scoreText = document.getElementById("score");
+const audioDiv = document.getElementById("listen-audio");
 
 let article = "";
 let keyWords =[];
@@ -31,11 +33,16 @@ setupFillInTheBlanks = () => {
   
 getNewQuestion = () => {
   questionCounter++;
+  let audioHTML = "";
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   article = currentQuestion.article;
   keyWords = currentQuestion.keyWords;
+  const radio = currentQuestion.audio;
+  audioHTML += `<audio controls><source src="audio/${radio}.mp3" type="audio/mpeg"></audio>`;
+  audioDiv.innerHTML = audioHTML;
+
   const segments = cutArticleWithKeywords(article, keyWords);
 
   articles.forEach((article) => {
@@ -91,15 +98,14 @@ function checkAnswers() {
 
     if (userAnswer === correctAnswer.toLowerCase()) {
       score += 10;
-      resultsHTML += `<p class="correct">Question ${blankNumber}: Correct!</p>`;
+      resultsHTML += `<h4 class="correct">Question ${blankNumber}: Correct!</h4>`;
     } else {
-      resultsHTML += `<p class="incorrect">Question ${blankNumber}: Incorrect. The correct answer is "${correctAnswer}".</p>`;
+      resultsHTML += `<h4 class="incorrect">Question ${blankNumber}: Incorrect. The correct answer is "${correctAnswer}".</h4>`;
     }
   });
 
-  resultsHTML = `<h3>Results</h3>${resultsHTML}<p>Your score: ${score} out of ${
-    blanks.length * 10
-  }</p>`;
+  resultsHTML = `<h3>Results</h3>${resultsHTML}`;
+  scoreText.innerText = score;
   resultsDiv.innerHTML = resultsHTML;
 
   const submitButton = document.getElementById("submitButton");
@@ -107,5 +113,3 @@ function checkAnswers() {
   submitButton.style.display = "none";
   nextPageButton.style.display = "block";
 }
-
-

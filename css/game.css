@@ -26,11 +26,15 @@
 }
 
 .correct {
-  background-color: #70ce86;
+  background-color: #85d899;
+  display: flex;
+  justify-content: left;
 }
 
 .incorrect {
-  background-color: #cf4d5a;
+  background-color: #ca606b;
+  display: flex;
+  justify-content: left;
 }
 
 /* hud */
@@ -39,9 +43,15 @@
   justify-content: space-between;
 }
 
+#listen-hud {
+  display: flex;
+  justify-content: right;
+}
+
 .hud-prefix {
   text-align: center;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  font-weight: 500;
 }
 
 .hud-main-text {
@@ -128,10 +138,10 @@
 }
 
 .listeninput {
-  margin-bottom: 0;
-  width: 7rem;
+  margin: 0rem 1rem;
+  width: 13rem;
   padding: 0;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   border-bottom: 1px solid #83888f;
   border-top: 0px;
   border-left: 0px;
@@ -140,6 +150,13 @@
 }
 
 .article {
-  margin: 0rem 1rem;
-  font-size: 1.8rem;
+  color: #7ba2c4;
+  margin: 1rem 0rem;
+  font-size: 2.2rem;
 }
+
+#results {
+  padding: 2rem 4rem;
+  margin: 3rem;
+}
+

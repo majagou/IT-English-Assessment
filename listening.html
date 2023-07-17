@@ -12,14 +12,17 @@
         <a href="#">IT English Test</a>
         <a class="active" href="index.html">Home</a>
     </div>
-    <div class="container">
+    <div class="container flex-center flex-column">
+        <div id="listen-hud">
+            <div id="hud-item">
+                <p class="hud-prefix">Score</p>
+                <h1 class="hud-main-text" id="score">0</h1>
+            </div>
+        </div>
         <div id="listeningTask" class="flex-center flex-column">
             <div id="listen-title">
                 <h2 class="listen-text">Listen to the material and fill in the blanks.</h2>                   
-                <audio controls>
-                    <source src="audio/BEN52-ChatGPT.mp3" type="audio/mpeg">
-                    Your browser does not support the audio tag.
-                </audio>
+                <div id="listen-audio"></div>
             </div>
             <div class="question">
                 <p class="article" data-number="1">text part 1</p>
@@ -34,9 +37,9 @@
                 <input type="text" class="blank listeninput" data-number="5">
                 <p class="article" data-number="6">text part 6</p>
             </div>        
-            <button id="submitButton" onclick="checkAnswers()">Submit Answers</button>
-            <button id="nextPageButton" onclick="goToNextPage()" style="display: none;">Next Page</button>
-            <div id="results">
+            <button id="submitButton" class = "btn" onclick="checkAnswers()">Submit Answers</button>
+            <button id="nextPageButton" class="btn" onclick="goToNextPage()" style="display: none;">Next Page</button>
+            <div id="results" class="listen-results text-center">
                 <!-- Results will be displayed here -->
             </div>
         </div>
