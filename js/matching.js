@@ -6,20 +6,31 @@ const words = Array.from(document.querySelectorAll(".word"));
 const urlParams = new URLSearchParams(window.location.search);
 const scoreFromPreviousPage = parseInt(urlParams.get("score"));
 
-// Randomly shuffle the order of pictures and words
-shuffleArray(images);
-shuffleArray(words);
+// Create an array to store the indices of selected pairs
+const selectedIndices = [];
+
+// Randomly select four pairs of indices
+while (selectedIndices.length < 4) {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  if (!selectedIndices.includes(randomIndex)) {
+    selectedIndices.push(randomIndex);
+  }
+}
+
+// Get the selected images and words using the selected indices
+const selectedImages = selectedIndices.map((index) => images[index]);
+const selectedWords = selectedIndices.map((index) => words[index]);
 
 // Record the currently selected picture and word
 let selectedImage = null;
 let selectedWord = null;
 
 // Add click event handlers for each image and word
-images.forEach((image) => {
+selectedImages.forEach((image) => {
   image.addEventListener("click", handleImageClick);
 });
 
-words.forEach((word) => {
+selectedWords.forEach((word) => {
   word.addEventListener("click", handleWordClick);
 });
 
@@ -54,7 +65,7 @@ function handleImageClick() {
     scoreElement.textContent = score;
 
     // check if all images and words are matched
-    if (matchedCount === images.length) {
+    if (matchedCount === selectedImages.length) {
       // Jump to the next page
       window.location.href = `singleSelection.html?score=${score}`;
     }
@@ -87,7 +98,7 @@ function handleWordClick() {
     scoreElement.textContent = score;
 
     // check if all images and words are matched
-    if (matchedCount === images.length) {
+    if (matchedCount === selectedImages.length) {
       // Jump to the next page
       window.location.href = `singleSelection.html?score=${score}`;
     }
@@ -100,17 +111,8 @@ function handleWordClick() {
     }
   }
 }
-
 // Update the score display after accumulating the score
 scoreElement.textContent = score;
-
-// Shuffle the order of the array
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
 
 // show error message
 function showError(message) {
@@ -119,7 +121,7 @@ function showError(message) {
   errorMessage.style.display = "block";
   errorShown = true;
 
-  // 清除错误提示
+  // clean error message
   setTimeout(() => {
     errorMessage.textContent = "";
     //errorMessage.style.display = "none";
@@ -127,7 +129,7 @@ function showError(message) {
   }, 1500);
 }
 
-// 清除错误提示
+// clean error message
 function clearError() {
   const errorMessage = document.getElementById("error-message");
   errorMessage.textContent = "";
@@ -141,15 +143,18 @@ window.onload = function () {
   const imageContainer = document.querySelector(".image-container");
   const wordContainer = document.querySelector(".word-container");
 
-  // empty the container
+  // Remove all images and words from the containers
   imageContainer.innerHTML = "";
   wordContainer.innerHTML = "";
 
-  // Generate image and word elements and add them to the container
-  for (let i = 0; i < images.length; i++) {
-    imageContainer.appendChild(images[i]);
-    wordContainer.appendChild(words[i]);
-  }
+  // Append the selected images and words to the containers
+  selectedImages.forEach((image) => {
+    imageContainer.appendChild(image);
+  });
+
+  selectedWords.forEach((word) => {
+    wordContainer.appendChild(word);
+  });
 };
 
 // Timer countdown
