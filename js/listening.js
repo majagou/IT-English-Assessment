@@ -1,24 +1,48 @@
-let article =
-  "This is the first part ChatGPT. This is the second part Machine Learning. This is the third part Tech. This is the fourth part Chatbot. This is the fifth part AI. This is the sixth part.";
-let keyWords = ["ChatGPT", "Machine", "Tech", "Chatbot", "AI"];
+//let article = "This is the first part ChatGPT. This is the second part Machine Learning. This is the third part Tech. This is the fourth part Chatbot. This is the fifth part AI. This is the sixth part.";
+//let keyWords = ["ChatGPT", "Machine", "Tech", "Chatbot", "AI"];
+const articles = Array.from(document.getElementsByClassName("article"));
 
-//let article = "";
-//let keyWords =["artificial", "development", "Guardian", "information", "conversational"];
+let article = "";
+let keyWords =[];
+let currentQuestion = {};
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
 
-function loadFileContent() {
-  fetch("article/BEN52-ChatGPT.txt")
-    .then((response) => response.text())
-    .then((data) => {
-      // Update the article variable with the file content
-      article = data;
-      // Call the setupFillInTheBlanks function to update the article content in the HTML
-      setupFillInTheBlanks();
-    })
-    .catch((error) => {
-      console.error("Error reading the file:", error);
-    });
+fetch("listen.json")
+  .then((res) => {
+    return res.json();
+  })
+  .then((loadedQuestions) => {
+    console.log(loadedQuestions);
+    questions = loadedQuestions;
+    setupFillInTheBlanks();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+setupFillInTheBlanks = () => {
+  questionCounter = 0;
+  availableQuestions = [...questions];
+
+  getNewQuestion();
+};
+  
+getNewQuestion = () => {
+  questionCounter++;
+
+  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionIndex];
+  article = currentQuestion.article;
+  keyWords = currentQuestion.keyWords;
+  const segments = cutArticleWithKeywords(article, keyWords);
+
+  articles.forEach((article) => {
+    const number = article.dataset["number"];
+    article.innerText = segments[number - 1];
+  });
 }
-console.log(article);
 
 function cutArticleWithKeywords(article, keywords) {
   // Convert the article to lowercase to make the search case-insensitive
@@ -48,18 +72,6 @@ function cutArticleWithKeywords(article, keywords) {
 
   return cutSegments;
 }
-
-const segments = cutArticleWithKeywords(article, keyWords);
-const articles = Array.from(document.getElementsByClassName("article"));
-
-setupFillInTheBlanks = () => {
-  articles.forEach((article) => {
-    const number = article.dataset["number"];
-    article.innerText = segments[number - 1];
-  });
-};
-
-let score = 0;
 
 function goToNextPage() {
   window.location.href = `match.html?score=${score}`;
@@ -96,4 +108,4 @@ function checkAnswers() {
   nextPageButton.style.display = "block";
 }
 
-setupFillInTheBlanks();
+
