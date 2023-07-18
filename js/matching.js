@@ -46,13 +46,12 @@ scoreElement.textContent = scoreFromPreviousPage;
 // Accumulate the score from the previous page
 score += scoreFromPreviousPage;
 
-// Handle the image click event
+// handle image click event and disappear,update score and check matching
 function handleImageClick() {
   if (
     selectedWord &&
     this.getAttribute("data-word") === selectedWord.getAttribute("data-word")
   ) {
-    // Both the image and the word disappear
     this.style.display = "none";
     selectedWord.style.display = "none";
     selectedImage = null;
@@ -60,13 +59,10 @@ function handleImageClick() {
     matchedCount++;
     score += 10;
 
-    // Update score display
     const scoreElement = document.getElementById("score");
     scoreElement.textContent = score;
 
-    // check if all images and words are matched
     if (matchedCount === selectedImages.length) {
-      // Jump to the next page
       window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
@@ -79,13 +75,12 @@ function handleImageClick() {
   }
 }
 
-// handle word click event
+// handle word click event and disappear,update score and check matching
 function handleWordClick() {
   if (
     selectedImage &&
     this.getAttribute("data-word") === selectedImage.getAttribute("data-word")
   ) {
-    // Both the image and the word disappear
     selectedImage.style.display = "none";
     this.style.display = "none";
     selectedImage = null;
@@ -93,13 +88,10 @@ function handleWordClick() {
     matchedCount++;
     score += 10;
 
-    // Update score display
     const scoreElement = document.getElementById("score");
     scoreElement.textContent = score;
 
-    // check if all images and words are matched
     if (matchedCount === selectedImages.length) {
-      // Jump to the next page
       window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
@@ -111,7 +103,7 @@ function handleWordClick() {
     }
   }
 }
-// Update the score display after accumulating the score
+
 scoreElement.textContent = score;
 
 // show error message
@@ -126,7 +118,7 @@ function showError(message) {
     errorMessage.textContent = "";
     //errorMessage.style.display = "none";
     errorShown = false;
-  }, 1500);
+  }, 2000);
 }
 
 // clean error message
@@ -137,17 +129,14 @@ function clearError() {
   errorShown = false;
 }
 
-// Initialize the page
+// Initialize the page,remove or append imgs and words
 window.onload = function () {
-  // Get the container elements of pictures and words
   const imageContainer = document.querySelector(".image-container");
   const wordContainer = document.querySelector(".word-container");
 
-  // Remove all images and words from the containers
   imageContainer.innerHTML = "";
   wordContainer.innerHTML = "";
 
-  // Append the selected images and words to the containers
   selectedImages.forEach((image) => {
     imageContainer.appendChild(image);
   });
@@ -157,8 +146,8 @@ window.onload = function () {
   });
 };
 
-// Timer countdown
-let remainingTime = 60; // 1 minute
+// Timer countdown for 1 min
+let remainingTime = 60;
 
 const timerElement = document.getElementById("timer");
 timerElement.textContent = remainingTime;
@@ -170,7 +159,6 @@ const timerInterval = setInterval(() => {
   if (remainingTime <= 0) {
     clearInterval(timerInterval);
 
-    // Jump to the next page and pass the score
     window.location.href = `singleSelection.html?score=${score}`;
   }
 }, 1000);
