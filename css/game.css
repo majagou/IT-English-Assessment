@@ -50,8 +50,8 @@
 
 .hud-prefix {
   text-align: center;
-  font-size: 3.5rem;
-  font-weight: 500;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .hud-main-text {
@@ -87,38 +87,38 @@
 }
 
 .image {
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  border: 1px lightblue;
+  width: 10rem;
+  height: 10rem;
+  margin: 1.5rem;
+  border: 0.2rem lightblue;
   cursor: pointer;
 }
 
 .error-message {
-  font-size: 5rem;
+  font-size: 2.5rem;
   text-align: center;
   color: red;
-  margin: 6rem;
+  margin: 1rem;
 }
 
 .word-container {
   display: flex;
-  font-size: 25px;
-  border: 10px lightblue;
+  font-size: 2.3rem;
+  border: 1rem lightblue;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 15rem 0rem;
+  gap: 6rem 0rem;
 }
 
 .word {
-  width: 200px;
-  height: 50px;
-  margin: 10px;
+  width: 20rem;
+  height: 5rem;
+  margin: 1rem;
   cursor: pointer;
   text-align: center;
-  padding: 10px;
+  padding: 1rem;
   box-shadow: lightblue;
 }
 
@@ -134,14 +134,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin-bottom: 4rem;
+  margin-bottom: 1.6rem;
 }
 
 .listeninput {
   margin: 0rem 1rem;
-  width: 13rem;
+  width: 6rem;
   padding: 0;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   border-bottom: 1px solid #83888f;
   border-top: 0px;
   border-left: 0px;
@@ -151,12 +151,11 @@
 
 .article {
   color: #7ba2c4;
-  margin: 1rem 0rem;
-  font-size: 2.2rem;
+  margin: 0.8rem 0rem;
+  font-size: 1.8rem;
 }
 
 #results {
-  padding: 2rem 4rem;
-  margin: 3rem;
+  padding: 1.3rem 4rem;
 }
 

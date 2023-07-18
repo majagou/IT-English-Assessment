@@ -104,7 +104,7 @@ function checkAnswers() {
     }
   });
 
-  resultsHTML = `<h3>Results</h3>${resultsHTML}`;
+  resultsHTML = `${resultsHTML}`;
   scoreText.innerText = score;
   resultsDiv.innerHTML = resultsHTML;
 

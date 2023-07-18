@@ -19,34 +19,34 @@ h4 {
 }
 
 h1{
-    font-size: 5.4rem;
+    font-size: 3.1rem;
     font-style: italic;
     color: #273a4b;
-    margin-bottom: 5rem;
+    margin-top: 1rem;
 }
 
 h1>span{
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
 }
 
 h2{
     color: #446786;
-    font-size: 3.5rem;
-    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.3rem;
     font-weight: 700;
 }
 
 h3{
-    font-size: 3rem;
+    font-size: 2rem;
     font-style: italic;
     font-weight: 500;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 h4{
-    font-size: 2rem;
-    padding: 1rem 1rem;
+    font-size: 1.8rem;
+    padding: 0.8rem 0.8rem;
     font-weight: 500;
     color: #ffffff;
 
@@ -56,14 +56,14 @@ h4{
 
 .container{
     background-color: #ffffff;
-    width: 80%;
+    width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width:  rem;
+    max-width:  120rem;
     margin: 0 auto;
-    padding: 7rem;
+    padding: 1rem 7rem;
 }
 
 .container>*{
@@ -94,12 +94,12 @@ h4{
   
   /* buttons */
 .btn {
-    font-size: 2.5rem;
-    padding: 2rem 0;
-    width: 20rem;
+    font-size: 2rem;
+    padding: 1rem 0;
+    width: 18rem;
     text-align: center;
     border: 0.1rem solid #56a5eb;
-    margin: 3rem;
+    margin: 1rem;
     text-decoration: none;
     color: #ffffff;
     background-color: #7ba2c4;
@@ -194,5 +194,5 @@ input::placeholder {
 /*start image*/
 
 #start-image {
-    padding:4rem 0rem;
+    padding:1rem 0rem;
 }
