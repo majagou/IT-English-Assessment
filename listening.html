@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Task</title>
+    <link rel="stylesheet" href="css/web.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <div class="top-navbar">
+        <a href="#">IT English Test</a>
+        <a class="active" href="index.html">Home</a>
+    </div>
+    <div class="container flex-center flex-column">
+        <div id="listen-hud">
+            <div id="hud-item">
+                <p class="hud-prefix">Score</p>
+                <h1 class="hud-main-text" id="score">0</h1>
+            </div>
+        </div>
+        <div id="listeningTask" class="flex-center flex-column">
+            <div id="listen-title">
+                <h2 class="listen-text">Listen to the material and fill in the blanks.</h2>                   
+                <div id="listen-audio"></div>
+            </div>
+            <div class="question">
+                <p class="article" data-number="1">text part 1</p>
+                <input type="text" class="blank listeninput" data-number="1">
+                <p class="article" data-number="2">text part 2</p>
+                <input type="text" class="blank listeninput" data-number="2">
+                <p class="article" data-number="3">text part 3</p>
+                <input type="text" class="blank listeninput" data-number="3">
+                <p class="article" data-number="4">text part 4</p>
+                <input type="text" class="blank listeninput" data-number="4">
+                <p class="article" data-number="5">text part 5</p>
+                <input type="text" class="blank listeninput" data-number="5">
+                <p class="article" data-number="6">text part 6</p>
+            </div>        
+            <button id="submitButton" class = "btn" onclick="checkAnswers()">Submit Answers</button>
+            <button id="nextPageButton" class="btn" onclick="goToNextPage()" style="display: none;">Next Page</button>
+            <div id="results" class="listen-results text-center">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+    <script src="js/listening.js"></script>
+</body>
+</html>
