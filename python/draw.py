@@ -3,10 +3,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from mpl_toolkits.mplot3d import Axes3D
+<<<<<<< HEAD
 from flask import Flask,request
 from flask import g
 from flask import render_template
 app = Flask(__name__)
+=======
+>>>>>>> 61773d838095cba79239487ddfef74dfc9a1715e
 
 def radar_chart(scores, labels, name):
     # 计算每个变量对应的角度
@@ -31,7 +34,11 @@ def radar_chart(scores, labels, name):
     ax.set_xticklabels(labels)
 
     # 保存雷达图为图片
+<<<<<<< HEAD
     plt.savefig(os.path.join("images/result/", f'{name}_radar.png'))
+=======
+    plt.savefig(os.path.join("./images/result/", f'{name}_radar.png'))
+>>>>>>> 61773d838095cba79239487ddfef74dfc9a1715e
     plt.close()
 
 def heatmap(scores, labels, name):
@@ -59,7 +66,11 @@ def heatmap(scores, labels, name):
         text = ax.text(i, 0, scores[i], ha="center", va="center", color="w")
 
     # 保存热力图为图片
+<<<<<<< HEAD
     plt.savefig(os.path.join("images/result/", f'{name}_heatmap.png'))
+=======
+    plt.savefig(os.path.join("./images/result/", f'{name}_heatmap.png'))
+>>>>>>> 61773d838095cba79239487ddfef74dfc9a1715e
     plt.close()
 
 def bar_3d(scores, labels, name):
@@ -84,6 +95,7 @@ def bar_3d(scores, labels, name):
     ax.set_title('3D Bar Chart of Scores')
 
     # 保存3D柱状图为图片
+<<<<<<< HEAD
     plt.savefig(os.path.join("images/result/", f'{name}_bar3d.png'))
     plt.close()
 
@@ -122,3 +134,17 @@ def createChart():
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
+=======
+    plt.savefig(os.path.join("./images/result/", f'{name}_bar3d.png'))
+    plt.close()
+
+# 测试数据
+scores = [85, 90, 92, 88, 89]
+labels = ['Listening', 'Speaking', 'Reading', 'Writing', 'Total']
+name = 'student1'
+
+# 生成雷达图、热力图和3D柱状图
+radar_chart(scores, labels, name)
+heatmap(scores, labels, name)
+bar_3d(scores, labels, name)
+>>>>>>> 61773d838095cba79239487ddfef74dfc9a1715e
