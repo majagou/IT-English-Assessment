@@ -38,6 +38,7 @@ startGame = () => {
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     localStorage.setItem("mostRecentScore", score);
+    setItemSingleSelections();
     //go to the end page
     return window.location.assign("/end.html?finalScore" + score);
   }
@@ -95,3 +96,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const initialScore = parseInt(urlParams.get("score"));
 score = initialScore;
 scoreText.innerText = score;
+
+function setItemSingleSelections(){
+  var listnings=window.localStorage.getItem("listnings");
+  var matchings=window.localStorage.getItem("matchings");
+  var singSelections=score*1-listnings*1-matchings*1;
+  window.localStorage.setItem("singleSlections",singSelections);
+}

@@ -1,0 +1,26 @@
+[
+    {
+      "question": "What is the correct synonym for 'see'?",
+      "choice1": "meet",
+      "choice2": "catch",
+      "choice3": "experience",
+      "choice4": "see",
+      "answer": 1
+    },
+    {
+      "question": "What is the correct synonym for 'use'?",
+      "choice1": "apply",
+      "choice2": "utilize",
+      "choice3": "expend",
+      "choice4": "use",
+      "answer": 3
+    },
+    {
+      "question": "What is the correct synonym for 'provide'?",
+      "choice1": "leave",
+      "choice2": "put_up",
+      "choice3": "allow",
+      "choice4": "provide",
+      "answer": 2
+    }
+]

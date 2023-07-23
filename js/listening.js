@@ -105,6 +105,7 @@ function checkAnswers() {
     } else {
       resultsHTML += `<h4 class="incorrect">Question ${blankNumber}: Incorrect. The correct answer is "${correctAnswer}".</h4>`;
     }
+    window.localStorage.setItem("listnings",score);
   });
 
   resultsHTML = `${resultsHTML}`;

@@ -11,4 +11,12 @@ username.addEventListener("keyup", () => {
 
 saveHighScore = (e) => {
   e.preventDefault();
+  var username=document.getElementById("username").value;
+  if(username){
+    window.localStorage.setItem("bl",true);
+    window.localStorage.setItem("username",username);
+    window.location.href = `chart.html`;
+  }else{
+    alert("username cannot be empty!");
+  }
 };

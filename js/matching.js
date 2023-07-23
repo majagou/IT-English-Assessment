@@ -63,6 +63,7 @@ function handleImageClick() {
     scoreElement.textContent = score;
 
     if (matchedCount === selectedImages.length) {
+      setItemMatchings();
       window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
@@ -92,6 +93,7 @@ function handleWordClick() {
     scoreElement.textContent = score;
 
     if (matchedCount === selectedImages.length) {
+      setItemMatchings();
       window.location.href = `singleSelection.html?score=${score}`;
     }
   } else {
@@ -158,7 +160,13 @@ const timerInterval = setInterval(() => {
 
   if (remainingTime <= 0) {
     clearInterval(timerInterval);
-
+    setItemMatchings();
     window.location.href = `singleSelection.html?score=${score}`;
   }
 }, 1000);
+
+function setItemMatchings(){
+  var listnings=window.localStorage.getItem("listnings");
+  var matchings=score*1-listnings*1;
+  window.localStorage.setItem("matchings",matchings);
+}

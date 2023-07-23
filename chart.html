@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback and Analysis</title>
+  <link rel="stylesheet" href="/css/web.css">
+  <style>
+    td{
+      padding: 6px;
+      font-size: large; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="height: auto;position: absolute;width: 60vw;left: 20vw;">
+    <div class="score_box">
+      <table style="width: 100%;text-align: center;" border="1">
+        <tr>
+          <td>Listening</td>
+          <td>Matching</td>
+          <td>SingleSelect</td>
+          <td>Total</td>
+        </tr>
+        <tr>
+          <td id="listening"></td>
+          <td id="matching"></td>
+          <td id="singleSelect"></td>
+          <td id="total"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" id="map">
+  
+  </div>
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/chart.js"></script>
+</body>
+</html>
