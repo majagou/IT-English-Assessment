@@ -2,39 +2,45 @@ import openai
 import random
 import json
 
-openai.api_key = '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'
+openai.api_key = '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'
 
-def ask_gpt(questions):
-    prompts = "\n".join([f"{i+1}: What is a correct synonym for '{word}' in the context of computer science?" for i, word in enumerate(questions)])
+def ask_gpt(question):
     response = openai.Completion.create(
         engine="text-davinci-002",
-        prompt=prompts,
-        max_tokens=60*len(questions)
+        prompt=f"Describe '{question}' in the context of computer science.",
+        max_tokens=40,
+        n=1
     )
-    responses = response.choices[0].text.strip().split("\n")
-    return [resp.split(", ") for resp in responses]
+    full_description = response.choices[0].text.strip()
+    description_words = full_description.split()[:10]  # limit to first 10 words
+    return ' '.join(description_words)
 
 # List of computer science terms, you can add more to it
 computer_science_terms = ["algorithm", "array", "function", "database", "loop", "variable", "object", "class", "method", "interface"]
 
 questions = []
 
-for _ in range(3): # we want to generate 3 questions
-    word = random.choice(computer_science_terms) # we randomly select a word from our list
-    question_prompt = f"What is a correct synonym for '{word}' in the context of computer science?"
-    response = ask_gpt([word for _ in range(3)])
-    
-    for idx, synonyms in enumerate(response):
-        if len(synonyms) >= 3:
-            question = {
-                "question": f"What is a correct synonym for '{word}' in the context of computer science?",
-                "choice1": synonyms[0],
-                "choice2": synonyms[1],
-                "choice3": synonyms[2],
-                "choice4": word,
-                "answer": random.randint(1, 3)
-            }
-            questions.append(question)
+for _ in range(3):  # we want to generate 3 questions
+    word = random.choice(computer_science_terms)  # we randomly select a word from our list
+    real_description = ask_gpt(word)
+
+    # Generate fake descriptions
+    fake_words = random.sample([term for term in computer_science_terms if term != word], 3)  # select 3 different words
+    fake_descriptions = [ask_gpt(fake_word) for fake_word in fake_words]
+
+    choices = fake_descriptions + [real_description]
+    random.shuffle(choices)  # shuffle choices so correct answer is not always at the end
+    answer = choices.index(real_description) + 1  # +1 to convert from 0-indexed to 1-indexed
+
+    question = {
+        "question": f"What is the correct description for '{word}'?",
+        "choice1": choices[0],
+        "choice2": choices[1],
+        "choice3": choices[2],
+        "choice4": choices[3],
+        "answer": answer
+    }
+    questions.append(question)
 
 with open('questions.json', 'w') as f:
     json.dump(questions, f, indent=2)
