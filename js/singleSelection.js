@@ -30,7 +30,6 @@ const MAX_QUESTIONS = 3;
 
 startGame = () => {
   questionCounter = 0;
-  score = 0;
   availableQuestions = [...questions];
   getNewQuestion();
 };
