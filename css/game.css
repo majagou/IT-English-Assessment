@@ -159,3 +159,12 @@
   padding: 1.3rem 4rem;
 }
 
+.map {
+  display: flex;
+  flex-direction: row;
+  width: 200rem;
+  height: 70rem;
+  margin: 1.5rem;
+  border: 0.2rem lightblue;
+  cursor: pointer;
+}

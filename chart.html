@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your final analytics</title>
     <link rel="stylesheet" href="/css/web.css" />
+    <link rel="stylesheet" href="css/game.css" />
     <style>
       td {
         padding: 6px;
@@ -16,10 +17,10 @@
     <div class="top-navbar">
       <a href="">IT English Test</a>
       <a class="active" href="statistic.html">Ranking</a>
-      <a class="active" href="dashboard.html">Back</a>
       <a class="active" href="index.html">Home</a>
     </div>
     <div class="container" style="height: 15vh">
+      <h1>Final score summary:</h1>
       <div class="score_box">
         <table style="width: 100%; text-align: center" border="1">
           <tr>
@@ -37,8 +38,8 @@
         </table>
       </div>
     </div>
-
-    <div class="container" id="map" style="height: 85vh"></div>
+    <h2>Analysis:</h2>
+    <div class="map" id="map"></div>
 
     <script src="/js/jquery.js"></script>
     <script src="/js/chart.js"></script>
