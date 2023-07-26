@@ -2,7 +2,8 @@ import openai
 import random
 import json
 
-openai.api_key = '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'
+
+openai.api_key = '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'
 
 def ask_gpt(question):
     response = openai.Completion.create(

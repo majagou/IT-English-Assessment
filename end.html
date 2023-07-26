@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback and Analysis</title>
-  <link rel="stylesheet" href="/css/web.css">
-</head>
-<body>
-  <div class="top-navbar">
-    <a href="">IT English Test</a>
-    <a class="active" href="statistic.html">Dashboard</a>
-  </div>
-  <div class="container">
-    <div id="end" class="flex-center flex-column">
-      <h1 id="finalScore">0</h1>
-      <form>
-        <input 
-          type="text"
-          name="username"
-          id="username"
-          placeholder="username"
-        >
-      <button 
-        type="submit" 
-        class="btn" 
-        id="saveScoreBtn"
-        onclick="saveHighScore(event)"
-        disabled
-        >
-        Save
-      </button>  
-      </form>
-      <a class="btn" href="/listening.html">Play Again</a>
-      <a class="btn" href="/">Go Home</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback and Analysis</title>
+    <link rel="stylesheet" href="/css/web.css" />
+  </head>
+  <body>
+    <div class="top-navbar">
+      <a href="">IT English Test</a>
+      <a class="active" href="dashboard.html">Dashboard</a>
     </div>
-  </div>
-  <script src="/js/end.js"></script>
-</body>
+    <div class="container">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore">0</h1>
+        <form>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+          />
+          <button
+            type="submit"
+            class="btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore(event)"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+        <a class="btn" href="/listening.html">Play Again</a>
+        <a class="btn" href="/">Go Home</a>
+      </div>
+    </div>
+    <script src="/js/end.js"></script>
+  </body>
 </html>

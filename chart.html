@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feedback and Analysis</title>
-  <link rel="stylesheet" href="/css/web.css">
-  <style>
-    td{
-      padding: 6px;
-      font-size: large; 
-    }
-  </style>
-</head>
-<body>
-  <div class="container" style="height: 15vh;">
-    <div class="score_box">
-      <table style="width: 100%;text-align: center;" border="1">
-        <tr>
-          <td>Listening</td>
-          <td>Matching</td>
-          <td>SingleSelect</td>
-          <td>Total</td>
-        </tr>
-        <tr>
-          <td id="listening"></td>
-          <td id="matching"></td>
-          <td id="singleSelect"></td>
-          <td id="total"></td>
-        </tr>
-      </table>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your final analytics</title>
+    <link rel="stylesheet" href="/css/web.css" />
+    <style>
+      td {
+        padding: 6px;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-navbar">
+      <a href="">IT English Test</a>
+      <a class="active" href="statistic.html">Ranking</a>
+      <a class="active" href="dashboard.html">Back</a>
+      <a class="active" href="index.html">Home</a>
     </div>
-  </div>
+    <div class="container" style="height: 15vh">
+      <div class="score_box">
+        <table style="width: 100%; text-align: center" border="1">
+          <tr>
+            <td>Listening</td>
+            <td>Matching</td>
+            <td>SingleSelect</td>
+            <td>Total</td>
+          </tr>
+          <tr>
+            <td id="listening"></td>
+            <td id="matching"></td>
+            <td id="singleSelect"></td>
+            <td id="total"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
-  <div class="container" id="map"  style="height: 85vh;">
-  
-  </div>
+    <div class="container" id="map" style="height: 85vh"></div>
 
-  <script src="/js/jquery.js"></script>
-  <script src="/js/chart.js"></script>
-</body>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/chart.js"></script>
+  </body>
 </html>
