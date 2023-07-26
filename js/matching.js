@@ -165,8 +165,38 @@ const timerInterval = setInterval(() => {
   }
 }, 1000);
 
-function setItemMatchings(){
-  var listnings=window.localStorage.getItem("listnings");
-  var matchings=score*1-listnings*1;
-  window.localStorage.setItem("matchings",matchings);
+function setItemMatchings() {
+  var listnings = window.localStorage.getItem("listnings");
+  var matchings = score * 1 - listnings * 1;
+  window.localStorage.setItem("matchings", matchings);
 }
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// Initialize the page, remove or append imgs and words
+window.onload = function () {
+  const imageContainer = document.querySelector(".image-container");
+  const wordContainer = document.querySelector(".word-container");
+
+  imageContainer.innerHTML = "";
+  wordContainer.innerHTML = "";
+
+  // Shuffle selectedImages and selectedWords arrays
+  const shuffledImages = shuffleArray(selectedImages);
+  const shuffledWords = shuffleArray(selectedWords);
+
+  // Append shuffledImages and shuffledWords to containers
+  shuffledImages.forEach((image) => {
+    imageContainer.appendChild(image);
+  });
+
+  shuffledWords.forEach((word) => {
+    wordContainer.appendChild(word);
+  });
+};
