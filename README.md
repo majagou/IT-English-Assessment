@@ -9,8 +9,8 @@ Run index.html for live
 
 
 Contribution list:
-Shiyi Gou: UI Design; Listening task; Score ranking; Infrastructures of the Website
+Shiyi Gou: UI Design; Listening task; Score ranking; Automatic grading; Infrastructures of the Website
 Mingcong Ding: Score visualization; item automatic generation(final version)
-Mengfan Li: Matching task; item automatic generation(first version)
+Mengfan Li: Matching task; item automatic generation(first version); Automatic grading; Time Limit
 
 All: Components combination and debugging 
